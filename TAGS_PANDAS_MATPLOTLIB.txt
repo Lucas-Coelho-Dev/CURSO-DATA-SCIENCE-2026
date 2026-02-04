@@ -1,0 +1,28 @@
+20 plot do Pandas/Matplotlib (quando usar e como funciona)
+| `kind`            | O que mostra             | Quando usar                    |
+| ----------------- | ------------------------ | ------------------------------ |
+| `line`            | Linha contínua           | Tendência no tempo             |
+| `hist`            | Histograma               | Distribuição de valores        |
+| `box`             | Boxplot                  | Outliers e quartis             |
+| `bar`             | Barras verticais         | Comparar categorias            |
+| `barh`            | Barras horizontais       | Nomes grandes nas categorias   |
+| `area`            | Área preenchida          | Volume acumulado               |
+| `pie`             | Pizza                    | Proporções simples             |
+| `kde`             | Curva de densidade       | Forma da distribuição          |
+| `scatter`         | Dispersão                | Correlação entre 2 variáveis   |
+| `hexbin`          | Dispersão densa          | Muitos pontos (menos poluição) |
+| `step`            | Linha em degraus         | Mudanças discretas             |
+| `violin`          | Distribuição + densidade | Comparar distribuições         |
+| `density`         | Igual ao kde             | Distribuição suave             |
+| `subplots=True`   | Vários gráficos          | Comparar colunas               |
+| `cumsum()` + plot | Acumulado                | Crescimento ao longo do tempo  |
+| `errorbar`        | Com erro padrão          | Análise estatística            |
+| `stem`            | Palitinhos               | Dados discretos                |
+| `polar`           | Polar                    | Dados circulares               |
+| `logy=True`       | Escala log               | Valores muito distantes        |
+| `stacked=True`    | Barras empilhadas        | Composição de categorias       |
+
+
+dados["nota"].plot(kind="kde")
+dados.plot(kind="scatter", x="usuarioId", y="nota")
+dados["nota"].plot(kind="box")

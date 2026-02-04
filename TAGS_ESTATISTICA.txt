@@ -1,0 +1,43 @@
+Medidas de tendência central (onde os dados “se concentram”)
+
+| Função           | O que é     | Quando usar                                       |
+| ---------------- | ----------- | ------------------------------------------------- |
+| `mean()`         | **Média**   | Visão geral do valor típico (sensível a outliers) |
+| `median()`       | **Mediana** | Valor central real (ignora outliers)              |
+| `mode()`         | **Moda**    | Valor mais frequente                              |
+| `quantile(0.25)` | Q1          | 25% dos dados abaixo                              |
+| `quantile(0.50)` | Q2          | Mesma coisa que mediana                           |
+| `quantile(0.75)` | Q3          | 75% dos dados abaixo                              |
+
+
+Medidas de dispersão (o quanto os dados variam)
+
+| Função          | O que é               | Quando usar                          |
+| --------------- | --------------------- | ------------------------------------ |
+| `std()`         | Desvio padrão         | Quanto os dados se espalham da média |
+| `var()`         | Variância             | Base do desvio padrão                |
+| `min()`         | Menor valor           | Limite inferior                      |
+| `max()`         | Maior valor           | Limite superior                      |
+| `max() - min()` | Amplitude             | Faixa total dos dados                |
+| `mad()`         | Desvio médio absoluto | Dispersão menos sensível a extremos  |
+
+
+Distribuição e formato dos dados
+
+| Função           | O que é                | Quando usar                       |
+| ---------------- | ---------------------- | --------------------------------- |
+| `value_counts()` | Frequência             | Saber o que mais aparece          |
+| `unique()`       | Valores únicos         | Ver diversidade                   |
+| `nunique()`      | Quantos valores únicos | Cardinalidade                     |
+| `describe()`     | Resumão estatístico    | Visão geral rápida                |
+| `skew()`         | Assimetria             | Se puxa mais pra esquerda/direita |
+| `kurt()`         | Curtose                | Se é muito pontudo ou achatado    |
+
+Relação entre variáveis (quando tiver 2 colunas)
+
+| Função              | O que é            | Quando usar                  |
+| ------------------- | ------------------ | ---------------------------- |
+| `corr()`            | Correlação         | Relação linear entre colunas |
+| `cov()`             | Covariância        | Base da correlação           |
+| `groupby().mean()`  | Média por grupo    | Comparar categorias          |
+| `groupby().count()` | Contagem por grupo | Frequência por grupo         |

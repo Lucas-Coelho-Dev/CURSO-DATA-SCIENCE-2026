@@ -1,0 +1,30 @@
+Seaborn é onde a EDA fica bonita e inteligente.
+| Função        | O que faz                | Quando usar              |
+| ------------- | ------------------------ | ------------------------ |
+| `histplot`    | Histograma moderno       | Distribuição             |
+| `boxplot`     | Quartis e outliers       | Comparar grupos          |
+| `violinplot`  | Distribuição detalhada   | Comparar grupos          |
+| `stripplot`   | Pontos com jitter        | Ver dispersão real       |
+| `swarmplot`   | Pontos sem sobreposição  | Pequenos datasets        |
+| `countplot`   | Contagem categorias      | Frequência               |
+| `barplot`     | Média + IC               | Comparação estatística   |
+| `pointplot`   | Tendência por categoria  | Evolução categórica      |
+| `scatterplot` | Dispersão com cores      | Correlação rica          |
+| `pairplot`    | Todos vs todos           | Explorar dataset inteiro |
+| `heatmap`     | Mapa de calor            | Correlação               |
+| `lineplot`    | Linha com grupos         | Séries temporais         |
+| `kdeplot`     | Densidade suave          | Forma da distribuição    |
+| `jointplot`   | 2 gráficos juntos        | Relação + distribuição   |
+| `rugplot`     | Marquinhas na base       | Complemento do hist      |
+| `displot`     | Distribuição com facetas | Comparações              |
+| `catplot`     | Vários categóricos       | Comparações múltiplas    |
+| `relplot`     | Relações com facetas     | Explorar relações        |
+| `lmplot`      | Regressão linear         | Tendência matemática     |
+| `clustermap`  | Agrupamento              | Descobrir padrões        |
+
+
+sns.histplot(dados["nota"], kde=True)
+sns.boxplot(x="nota", data=dados)
+sns.heatmap(dados.corr(), annot=True)
+sns.pairplot(dados)
+sns.lmplot(x="usuarioId", y="nota", data=dados)
