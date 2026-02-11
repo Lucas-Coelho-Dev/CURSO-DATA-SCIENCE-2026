@@ -1,0 +1,81 @@
+Aqui vou conversar comigo mesmo sobre o que eu estou entendendo sobre o curso Data Science: Explorando e Analisando Dados
+
+Começamos o curso usando o google collab que é um ambiente mais prático para acessar os dados, ele permite rodar localmente um "banco de dados" 
+Como por exemplo esses: 
+Banco 1: https://raw.githubusercontent.com/alura-cursos/data-science-analise-exploratoria/main/Aula_0/ml-latest-small/ratings.csv
+Banco 2: https://raw.githubusercontent.com/alura-cursos/data-science-analise-exploratoria/main/Aula_0/ml-latest-small/movies.csv
+Que seriam banco de dados com dados sobre filmes 
+
+Para ler esses bancos usamos "pd.read_csv(linkbanco)"
+
+Depois aprendemos como printar "mostrar" de forma crua como esses dados estão apresentados usando "print (nome_var)"
+
+Depois aprendemos a verificar como eles estavam distribuidos usando o "nome_var.shape"
+
+Assim vimos que eram muitas linhas e apenas 4 colunas
+
+Depois definimos uma tag para cada uma dessas colunas utilizando o "nome_var.columns = ["usuarioId", "filmeId", "nota", "hora"]"
+
+logo após chamamos ela para ver como estava saindo "nome_var.head()"
+
+Após aprendemos a unificar um montante de dados de forma crua utilizando "nome_var["nota"].unique()"
+
+Depois quantas vezes um dado se repetia ou era contado "nome_var["nota"].value_counts()"
+
+nota count
+	
+4.0	26818
+3.0	20047
+5.0	13211
+3.5	13136
+4.5	8551
+2.0	7551
+2.5	5550
+1.0	2811
+1.5	1791
+0.5	1370
+
+Após aprendemos como tirar a média "nome_var["nota"].mean()"
+
+Agora ficou bom começamos a brincar com nossos primeiros gráficos "nome_vardados["nota"].plot()"
+Mas ele não gerou nada muito util, acabou que os dados só foram jogados na tela e não dava para entender nada
+
+Aqui fizemos um histograma o que seria um "visualizador crescente" de como os dados foram computados "nome_vardados["nota"].plot(kind='hist')
+
+Depois, aprendemos a tirar a mediana "nome_var["nota"].median()"
+
+
+Agora estamos aprendendo sobre query, grupby 
+Query() do Pandas permite filtrar dados de um DataFrame utilizando uma expressão de consulta semelhante à linguagem SQL. 
+Ele permite que você selecione linhas com base em condições específicas definidas na expressão de consulta, facilitando a filtragem dos dados
+A expressão de consulta pode incluir operadores lógicos como and, or e not, bem como operadores de comparação como ==, <, >, <= e >=.
+query faz uma busca na nossa planilha algo como "nome_var.query("filmeId==1")["nota"].mean()" ou "nome_var.query("filmeId==2")["nota"].mean()"
+Já o grupby faz o agrupamento de dados, nesse caso eu peguei todos os filmes e todas as notas e pedi a média deles: dessa forma abaixo...
+
+"medias_por_filme = dados.groupby("filmeId")["nota"].mean()"
+
+Depois rodei outro histograma medias_por_filme.plot(kind='hist') 
+
+Percebi que naquele primeiro eu histograma eu tinha os dados sendo visualizados a partir da influencia humana 
+E já no segundo era realmente os dados apresentados com mais informações inseridas, podemos ver que poucos filmes tem média menor do que 1 
+e a grande maioria tem uma média proxima de 4 
+
+O histograma anterior estava dizendo sobre o comportamento humano na hora de dar notas para filmes. 
+Agora, isso aqui está falando sobre cada filme individualmente.
+
+Query para filtrar dados de duas ou mais colunas
+Este método também pode ser utilizado para filtrar dados em duas ou mais colunas, combinando as condições com operadores lógicos.
+vendas.query('valor > 10 and metodo_pagamento != "Dinheiro" ')
+Neste outro exemplo acima, estamos filtrando o DataFrame para selecionar apenas as linhas em que o valor do 
+produto é maior que 10 e o método de pagamento é qualquer um, exceto “Dinheiro”.
+
+
+Query com o operador @
+Além disso, o método query() permite referenciar variáveis externas dentro da expressão de consulta usando o operador @. 
+Sendo bastante útil para criar consultas dinâmicas com base em variáveis definidas previamente.
+# Definindo uma variável externa
+produtos = ['Café au lait', 'Espresso', 'Cappuccino']
+vendas.query('produto in @produtos and metodo_pagamento == "PIX" ')
+Neste exemplo, estamos filtrando o DataFrame para selecionar apenas as linhas em que tenham os produtos passados pela lista produtos e que o método de pagamento seja em PIX.
+
+
