@@ -1,0 +1,110 @@
+Nós vamos utilizar o banco "TMDB 5000 Movie Dataset". Lá, encontraremos o arquivo tmdb_5000_movies.csv, que contém as informações relativas a esses filmes.
+
+Vamos conferir quais são as línguas originais presentes na tabela? Em uma célula vazia, vamos pedir ao tmdb para pegar a coluna original_language, entre aspas e colchetes.
+
+tmdb['original_language']
+
+Retorno:
+
+0 en
+1 en
+2 en
+3 en
+4 en
+..
+4798 es
+4799 en
+4800 en
+4801 en
+4802 en
+Name: original_language, Length: 4803, dtype: object
+
+Basicamente, só foi retornado inglês e espanhol, mas não sabemos o que são as línguas suprimidas pelas reticências ali no meio.
+
+Podemos usar o unique(), que mostra os valores únicos. Dessa vez, irá mostrar os textos únicos.
+
+tmdb['original_language'].unique()
+
+Retorno:
+array(['en', 'ja', 'fr', 'zh', 'es', 'de', 'hi', 'ru', 'ko', 'te', 'cn', 'it', 'nl', 'ta', 'sv', 'th', 'da', 'xx', 'hu', 'cs', 'pt', 'is', 'tr', 'nb', 'af', 'pl', 'he', 'ar', 'vi', 'ky', 'id', 'ro', 'fa', 'no', 'sl', 'ps', 'el'], dtype=object)
+
+São retornadas siglas, por exemplo, EN de inglês, JA de japonês, FR de francês, entre outras línguas. Temos 5.000 filmes, cuja língua original é uma dessas.
+
+É fácil calcular que a média das notas dos filmes é 3.5, por exemplo, mas qual a média das línguas originais? 
+Essa pergunta não faz sentido, porque você não soma duas línguas e divide por dois.
+
+
+Você pode fazer a pergunta qual é a língua mais comum, assim como tem a pergunta qual é a nota mais comum. Chamamos isso de moda. Nesse caso, a moda seria a nota que mais ocorre, por exemplo, 3.5.
+
+Para descobrir qual a moda da língua, ou seja, a língua original que mais ocorre dentre os cinco mil filmes, podemos fazer um value_counts() que soma cada uma das ocorrências desses dados.
+
+Para descobrir qual a moda da língua, ou seja, a língua original que mais ocorre dentre os cinco mil filmes, podemos fazer um value_counts() que soma cada uma das ocorrências desses dados.
+
+tmdb['original_language'].value_counts()
+
+Retorno:
+
+en    4505
+fr      70
+es      32
+zh      27
+de      27
+hi      19
+ja      16
+it      14
+cn      12
+ru      11
+ko      11
+pt       9
+da       7
+sv       5
+nl       4
+fa       4
+th       3
+he       3
+ta       2
+cs       2
+ro       2
+id       2
+ar       2
+vi       1
+sl       1
+ps       1
+no       1
+ky       1
+hu       1
+pl       1
+af       1
+nb       1
+tr       1
+is       1
+xx       1
+te       1
+el       1
+Name: original_language, dtype: int64
+Copiar código
+E aí descobrimos que a língua que mais aparece é o inglês (EN).
+
+Para esse tipo de dado, a moda faz sentido, porque é o que mais aparece. Já a média não faz sentido, porque você não soma duas strings e divide por dois.
+
+A mediana também não faz sentido, porque não existe um valor que está entre inglês e japonês. Se temos o número 3 e o número 4, conseguimos somar ambos e dividir por dois para descobrir a mediana. Contudo, não faz sentido somar e pegar a letra do meio de duas strings.
+
+A categórica pode ser um número, como a nota, mas também pode ser um texto. E existem diversas formas de trabalhar com essas variáveis.
+
+Para exemplificar, a variável do budget, que é o orçamento, dá uma quantidade. Portanto, ela é uma variável quantitativa - e não qualitativa.
+
+Além disso, ela tem uma ordem, pois vai do orçamento mais barato ao mais caro, ou seja, do menor para o maior. Então, ela é uma quantitativa que tem uma ordem e também é contínua. O orçamento poderia ser 357, mas também poderia ser 1.400.000. Poderia ser qualquer número.
+
+Em suma, ela é quantitativa contínua, pois pode assumir qualquer valor no intervalo possível.
+
+
+Conclusão
+É importante entender que existem tipos de variáveis e precisamos tratá-los de maneiras diferentes.
+
+Para um orçamento, faz todo sentido calcular a média e a mediana. Dificilmente terá sentido falar de moda, porque cada orçamento será completamente diferente do outro.
+
+Já para a nota do Movie Lens faz todo sentido falar de moda, porque você tem que escolher uma dessas categorias. Também faz sentido saber a mediana, que divide metade de metade. A média, apesar de ter algumas restrições, também é possível.
+
+Em contrapartida, não faz sentido falar de média para a quantidade de votos. Só de mediana e moda.
+
+Lembrando que é muito importante saber se essas variáveis tem ordem ou não. Nesses casos, todas elas têm ordem de menor e maior. Mas, a língua original é uma variável categórica sem ordem. Por padrão, ela não tem ordem. Não estamos falando de uma ordem alfabética.
