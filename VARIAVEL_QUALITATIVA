@@ -1,0 +1,18 @@
+Variáveis Qualitativas
+Também conhecidas como categóricas, representam características que não podem ser medidas numericamente, mas podem ser categorizadas, ou seja, 
+representam uma classificação. Estas variáveis podem ser nominais ou ordinais.
+
+Observação: a depender dos tipos dos dados, é possível que uma variável qualitativa possa ser representada por números. Por exemplo, uma coluna 
+que representa uma característica em que 0 simboliza “Não” e 1 simboliza “Sim”. Os números aqui servem para resumir a representação dos dados e não devem 
+ser utilizados para cálculo, por exemplo, de média.
+
+Nominal
+Uma variável qualitativa nominal é aquela que classifica os elementos em classes ou categorias em relação ao tipo do dado representado. 
+Ela não possui uma relação de grandeza ou ordem dos dados
+
+Exemplos: Nome de produtos, departamentos, métodos de pagamento ou variáveis geográficas, como, cidade, estado e região.
+
+Ordinal
+Uma variável qualitativa ordinal também é aquela que classifica os elementos em classes ou categorias, porém existe uma ordem natural ou hierárquica entre as categorias.
+
+Exemplos: grau de escolaridade (ensino infantil, ensino fundamental, ensino médio), nível de satisfação do cliente (insatisfeito, neutro e satisfeito) e nível socioeconômico.

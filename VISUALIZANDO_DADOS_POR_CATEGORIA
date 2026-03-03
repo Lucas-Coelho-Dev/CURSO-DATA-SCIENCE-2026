@@ -1,0 +1,40 @@
+Prosseguindo com nosso curso, vamos adentrar ainda mais no tmdb. Nosso objetivo agora é explorar as línguas de uma maneira diferente.
+
+Análise inicial
+No tmdb, tínhamos a coluna original_language, que nos fornecia informações sobre os idiomas. Ao aplicarmos o método .value_counts(), 
+obtivemos a contagem de cada idioma em uma única série.
+
+Decomposição dos resultados
+Portanto, toda vez que usamos o .value_counts(), podemos decompor os resultados em índices, usando .index(), ou valores, usando .values().
+
+Transformação em dataframe
+Agora, se desejamos plotar essas contagens de alguma forma, precisamos transformar esses resultados em duas colunas separadas. 
+Não queremos mais apenas uma série, mas sim uma tabela, um dataframe. Para isso, usamos o método .to_frame().
+
+
+Visualização gráfica
+Ao usar contagem_de_lingua.plot(), observamos um gráfico de linha com valor alto no início, que seria 4505, 
+e vários outros valores baixos, plotando a coluna total. Mas não é o que queremos.
+
+contagem_de_lingua.plot()
+
+Precisamos de um gráfico que destaque as diferenças de tamanho entre as línguas. Nesse caso, os gráficos de barra são ideais para esse propósito.
+
+Então, vamos solicitar um barplot. Os dados serão provenientes do conjunto de dados contagem_de_lingua. As barras representarão as línguas no eixo x e o total no eixo y.
+
+sns.barplot(data = contagem_de_lingua, x="original_language", y="total")
+Copiar código
+Assim, ao solicitar um gráfico de barra, teremos as línguas dispostas da esquerda para a direita e as alturas das barras representando o total de ocorrências, conforme desejado.
+
+Facilidade com o Seaborn
+Porém, podemos nos perguntar: será que o Seaborn não consegue lidar diretamente com colunas categóricas? Por exemplo, a coluna original_language do tmdb.
+
+Ao explorar a documentação do Seaborn, descobrimos várias maneiras de utilizá-lo, incluindo o tratamento de colunas categóricas.
+
+Entre as opções disponíveis, encontramos funções como count e countplot. O countplot é um pouco similar ao barplot, pois cria barras, 
+mas também conta as ocorrências automaticamente. Em outras palavras, ele executa o .value_counts() para nós.
+
+
+Perceba como o Seaborn facilita a criação de gráficos específicos para dados categóricos. Além disso, sua documentação é uma excelente fonte de informações,
+com exemplos de uso e tutoriais para diversas situações, como visualização de dados categóricos. À medida que exploramos esses recursos,
+podemos descobrir maneiras eficientes de apresentar e analisar informações em nossos dados.
